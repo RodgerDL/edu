@@ -1,0 +1,99 @@
+/**
+ * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
+ */
+package com.jeesite.modules.edu.web;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.jeesite.common.config.Global;
+import com.jeesite.common.entity.Page;
+import com.jeesite.common.web.BaseController;
+import com.jeesite.modules.edu.entity.EdMeeting;
+import com.jeesite.modules.edu.service.EdMeetingService;
+
+/**
+ * ed_meetingController
+ * @author Roger
+ * @version 2018-11-26
+ */
+@Controller
+@RequestMapping(value = "${adminPath}/edu/edMeeting")
+public class EdMeetingController extends BaseController {
+
+	@Autowired
+	private EdMeetingService edMeetingService;
+	
+	/**
+	 * 获取数据
+	 */
+	@ModelAttribute
+//	public EdMeeting get(Long id, boolean isNewRecord) {
+//		return edMeetingService.get(id, isNewRecord);
+//	}
+	
+	/**
+	 * 查询列表
+	 */
+	@RequiresPermissions("edu:edMeeting:view")
+	@RequestMapping(value = {"list", ""})
+	public String list(EdMeeting edMeeting, Model model) {
+		model.addAttribute("edMeeting", edMeeting);
+		return "modules/edu/edMeetingList";
+	}
+	
+	/**
+	 * 查询列表数据
+	 */
+	@RequiresPermissions("edu:edMeeting:view")
+	@RequestMapping(value = "listData")
+	@ResponseBody
+	public Page<EdMeeting> listData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
+		edMeeting.setPage(new Page<>(request, response));
+		Page<EdMeeting> page = edMeetingService.findPage(edMeeting); 
+		return page;
+	}
+
+	/**
+	 * 查看编辑表单
+	 */
+	@RequiresPermissions("edu:edMeeting:view")
+	@RequestMapping(value = "form")
+	public String form(EdMeeting edMeeting, Model model) {
+		model.addAttribute("edMeeting", edMeeting);
+		return "modules/edu/edMeetingForm";
+	}
+
+	/**
+	 * 保存ed_meeting
+	 */
+	@RequiresPermissions("edu:edMeeting:edit")
+	@PostMapping(value = "save")
+	@ResponseBody
+	public String save(@Validated EdMeeting edMeeting) {
+		edMeetingService.save(edMeeting);
+		return renderResult(Global.TRUE, text("保存ed_meeting成功！"));
+	}
+	
+	/**
+	 * 删除ed_meeting
+	 */
+	@RequiresPermissions("edu:edMeeting:edit")
+	@RequestMapping(value = "delete")
+	@ResponseBody
+	public String delete(EdMeeting edMeeting) {
+		edMeetingService.delete(edMeeting);
+		return renderResult(Global.TRUE, text("删除ed_meeting成功！"));
+	}
+	
+}
