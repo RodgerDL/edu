@@ -37,7 +37,7 @@ public class EdMeetingScheduleController extends BaseController {
 	/**
 	 * 获取数据
 	 */
-	@ModelAttribute
+//	@ModelAttribute
 //	public EdMeetingSchedule get(Long id, boolean isNewRecord) {
 //		return edMeetingScheduleService.get(id, isNewRecord);
 //	}
