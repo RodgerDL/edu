@@ -14,7 +14,7 @@ import com.jeesite.modules.edu.entity.EdMeetingSchedule;
 import com.jeesite.modules.edu.dao.EdMeetingScheduleDao;
 
 /**
- * ed_meeting_scheduleService
+ * 会议预定Service
  * @author Roger
  * @version 2018-11-26
  */

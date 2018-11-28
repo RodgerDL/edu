@@ -23,7 +23,7 @@ import com.jeesite.modules.edu.entity.EdMeetingSchedule;
 import com.jeesite.modules.edu.service.EdMeetingScheduleService;
 
 /**
- * ed_meeting_scheduleController
+ * 会议预定Controller
  * @author Roger
  * @version 2018-11-26
  */
@@ -37,11 +37,11 @@ public class EdMeetingScheduleController extends BaseController {
 	/**
 	 * 获取数据
 	 */
-//	@ModelAttribute
-//	public EdMeetingSchedule get(Long id, boolean isNewRecord) {
-//		return edMeetingScheduleService.get(id, isNewRecord);
-//	}
-	
+	@ModelAttribute
+	public EdMeetingSchedule get(String id, boolean isNewRecord) {
+		return edMeetingScheduleService.get(id, isNewRecord);
+	}
+
 	/**
 	 * 查询列表
 	 */
@@ -82,7 +82,7 @@ public class EdMeetingScheduleController extends BaseController {
 	@ResponseBody
 	public String save(@Validated EdMeetingSchedule edMeetingSchedule) {
 		edMeetingScheduleService.save(edMeetingSchedule);
-		return renderResult(Global.TRUE, text("保存ed_meeting_schedule成功！"));
+		return renderResult(Global.TRUE, text("保存会议预定成功！"));
 	}
 	
 	/**
@@ -93,7 +93,7 @@ public class EdMeetingScheduleController extends BaseController {
 	@ResponseBody
 	public String delete(EdMeetingSchedule edMeetingSchedule) {
 		edMeetingScheduleService.delete(edMeetingSchedule);
-		return renderResult(Global.TRUE, text("删除ed_meeting_schedule成功！"));
+		return renderResult(Global.TRUE, text("删除会议预定成功！"));
 	}
 	
 }

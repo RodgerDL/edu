@@ -38,9 +38,9 @@ public class EdMeetingController extends BaseController {
 	 * 获取数据
 	 */
 	@ModelAttribute
-//	public EdMeeting get(Long id, boolean isNewRecord) {
-//		return edMeetingService.get(id, isNewRecord);
-//	}
+	public EdMeeting get(String id, boolean isNewRecord) {
+		return edMeetingService.get(id, isNewRecord);
+	}
 	
 	/**
 	 * 查询列表

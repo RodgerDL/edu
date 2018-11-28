@@ -23,24 +23,20 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
  */
 @Table(name="ed_video_account", alias="a", columns={
 		@Column(name="id", attrName="id", label="id", isPK=true),
-		@Column(name="vendor_id", attrName="vendorId", label="vendor_id"),
+		@Column(name="vendor_id", attrName="vendorId", label="供应商编号"),
 		@Column(name="account", attrName="account", label="会员身份"),
 		@Column(name="password", attrName="password", label="账号密码"),
 		@Column(name="category", attrName="category", label="会员类别"),
-		@Column(includeEntity=DataEntity.class),
-		@Column(name="create_time", attrName="createTime", label="create_time"),
-		@Column(name="update_time", attrName="updateTime", label="update_time"),
+		@Column(includeEntity=DataEntity.class)
 	}, orderBy="a.id DESC"
 )
 public class EdVideoAccount extends DataEntity<EdVideoAccount> {
 	
 	private static final long serialVersionUID = 1L;
-	private Long vendorId;		// vendor_id
+	private String vendorId;		// vendor_id
 	private String account;		// 会员身份
 	private String password;		// 账号密码
 	private String category;		// 会员类别
-	private Date createTime;		// create_time
-	private Date updateTime;		// update_time
 	
 	public EdVideoAccount() {
 		this(null);
@@ -51,11 +47,11 @@ public class EdVideoAccount extends DataEntity<EdVideoAccount> {
 	}
 	
 	@NotNull(message="vendor_id不能为空")
-	public Long getVendorId() {
+	public String getVendorId() {
 		return vendorId;
 	}
 
-	public void setVendorId(Long vendorId) {
+	public void setVendorId(String vendorId) {
 		this.vendorId = vendorId;
 	}
 	
@@ -87,26 +83,6 @@ public class EdVideoAccount extends DataEntity<EdVideoAccount> {
 
 	public void setCategory(String category) {
 		this.category = category;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@NotNull(message="create_time不能为空")
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@NotNull(message="update_time不能为空")
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 	
 }

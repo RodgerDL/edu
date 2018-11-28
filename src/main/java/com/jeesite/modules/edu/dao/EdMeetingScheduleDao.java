@@ -8,7 +8,7 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.edu.entity.EdMeetingSchedule;
 
 /**
- * ed_meeting_scheduleDAO接口
+ * 会议预定DAO接口
  * @author Roger
  * @version 2018-11-26
  */

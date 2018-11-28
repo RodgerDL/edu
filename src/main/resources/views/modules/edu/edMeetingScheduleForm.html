@@ -1,9 +1,9 @@
-<% layout('/layouts/default.html', {title: 'ed_meeting_schedule管理', libs: ['validate']}){ %>
+<% layout('/layouts/default.html', {title: '会议预定管理', libs: ['validate']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header with-border">
 			<div class="box-title">
-				<i class="fa fa-list-alt"></i> ${text(edMeetingSchedule.isNewRecord ? '新增ed_meeting_schedule' : '编辑ed_meeting_schedule')}
+				<i class="fa fa-list-alt"></i> ${text(edMeetingSchedule.isNewRecord ? '新增会议预定' : '编辑会议预定')}
 			</div>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -17,7 +17,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('实际结束时间')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('学员编号')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="userId" maxlength="11" class="form-control required digits"/>
 							</div>
@@ -26,7 +26,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('人数')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('会议编号')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="meetingId" maxlength="11" class="form-control required digits"/>
 							</div>
@@ -37,7 +37,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('实际开始时间')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('视频账号')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="videoAccountId" maxlength="11" class="form-control required digits"/>
 							</div>
@@ -48,7 +48,8 @@
 							<label class="control-label col-sm-4" title="">
 								<span class="required hide">*</span> ${text('计划开始时间')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
-								<#form:input path="scheduleStartTime" class="form-control"/>
+                                <#form:input path="scheduleStartTime" readonly="true" maxlength="20" class="form-control Wdate "
+                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
 							</div>
 						</div>
 					</div>
@@ -59,27 +60,8 @@
 							<label class="control-label col-sm-4" title="">
 								<span class="required hide">*</span> ${text('计划结束时间')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
-								<#form:input path="scheduleEndTime" class="form-control"/>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="form-group">
-							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('create_time')}：<i class="fa icon-question hide"></i></label>
-							<div class="col-sm-8">
-								<#form:input path="createTime" class="form-control required"/>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="form-group">
-							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('update_time')}：<i class="fa icon-question hide"></i></label>
-							<div class="col-sm-8">
-								<#form:input path="updateTime" class="form-control required"/>
+                                <#form:input path="scheduleEndTime" readonly="true" maxlength="20" class="form-control Wdate "
+                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
 							</div>
 						</div>
 					</div>

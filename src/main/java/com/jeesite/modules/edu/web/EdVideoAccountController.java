@@ -38,9 +38,9 @@ public class EdVideoAccountController extends BaseController {
 	 * 获取数据
 	 */
 	@ModelAttribute
-//	public EdVideoAccount get(Long id, boolean isNewRecord) {
-//		return edVideoAccountService.get(id, isNewRecord);
-//	}
+	public EdVideoAccount get(String id, boolean isNewRecord) {
+		return edVideoAccountService.get(id, isNewRecord);
+	}
 	
 	/**
 	 * 查询列表

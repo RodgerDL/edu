@@ -10,11 +10,11 @@
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	
-	<artifactId>jeesite-web</artifactId>
+	<artifactId>edu-web</artifactId>
 	<packaging>war</packaging>
 	
-	<name>JeeSite Web</name>
-	<url>http://jeesite.com</url>
+	<name>Edu Web</name>
+	<url>http://e-all.com</url>
 	<inceptionYear>2013-Now</inceptionYear>
 	
 	<properties>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
 		
 		<!-- 自定义jar依赖包演示

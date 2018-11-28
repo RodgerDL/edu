@@ -30,9 +30,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 		@Column(name="actual_start_time", attrName="actualStartTime", label="实际开始时间"),
 		@Column(name="actual_end_time", attrName="actualEndTime", label="实际结束时间"),
 		@Column(name="category", attrName="category", label="会议类别"),
-		@Column(includeEntity=DataEntity.class),
-		@Column(name="create_time", attrName="createTime", label="create_time"),
-		@Column(name="update_time", attrName="updateTime", label="update_time"),
+		@Column(includeEntity=DataEntity.class)
 	}, orderBy="a.id DESC"
 )
 public class EdMeeting extends DataEntity<EdMeeting> {
@@ -45,8 +43,6 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	private Date actualStartTime;		// 实际开始时间
 	private Date actualEndTime;		// 实际结束时间
 	private String category;		// 会议类别
-	private Date createTime;		// create_time
-	private Date updateTime;		// update_time
 	
 	public EdMeeting() {
 		this(null);
@@ -119,24 +115,6 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 
 	public void setCategory(String category) {
 		this.category = category;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 	
 }
