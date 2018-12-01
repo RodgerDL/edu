@@ -42,6 +42,7 @@ jdbc:
   password: abcd1234
   testSql: SELECT 1
 
+
 #  # Oracle 数据库配置
 #  type: oracle
 #  driver: oracle.jdbc.driver.OracleDriver
