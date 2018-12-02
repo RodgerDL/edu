@@ -23,9 +23,9 @@ import com.jeesite.modules.edu.entity.EdMeetingSchedule;
 import com.jeesite.modules.edu.service.EdMeetingScheduleService;
 
 /**
- * 会议预定Controller
+ * 会议预定表Controller
  * @author Roger
- * @version 2018-11-26
+ * @version 2018-12-02
  */
 @Controller
 @RequestMapping(value = "${adminPath}/edu/edMeetingSchedule")
@@ -38,10 +38,10 @@ public class EdMeetingScheduleController extends BaseController {
 	 * 获取数据
 	 */
 	@ModelAttribute
-	public EdMeetingSchedule get(String id, boolean isNewRecord) {
-		return edMeetingScheduleService.get(id, isNewRecord);
+	public EdMeetingSchedule get(String scheduleCode, boolean isNewRecord) {
+		return edMeetingScheduleService.get(scheduleCode, isNewRecord);
 	}
-
+	
 	/**
 	 * 查询列表
 	 */
@@ -75,25 +75,25 @@ public class EdMeetingScheduleController extends BaseController {
 	}
 
 	/**
-	 * 保存ed_meeting_schedule
+	 * 保存会议预定表
 	 */
 	@RequiresPermissions("edu:edMeetingSchedule:edit")
 	@PostMapping(value = "save")
 	@ResponseBody
 	public String save(@Validated EdMeetingSchedule edMeetingSchedule) {
 		edMeetingScheduleService.save(edMeetingSchedule);
-		return renderResult(Global.TRUE, text("保存会议预定成功！"));
+		return renderResult(Global.TRUE, text("保存会议预定表成功！"));
 	}
 	
 	/**
-	 * 删除ed_meeting_schedule
+	 * 删除会议预定表
 	 */
 	@RequiresPermissions("edu:edMeetingSchedule:edit")
 	@RequestMapping(value = "delete")
 	@ResponseBody
 	public String delete(EdMeetingSchedule edMeetingSchedule) {
 		edMeetingScheduleService.delete(edMeetingSchedule);
-		return renderResult(Global.TRUE, text("删除会议预定成功！"));
+		return renderResult(Global.TRUE, text("删除会议预定表成功！"));
 	}
 	
 }
