@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa5e369-2937-4a5d-a69b-011b71316fff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdMeetingDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdUserAccountMappingDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdUserAccountMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdMeetingDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdUserAccountMappingDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdAccountDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdVendorDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdVendor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdAccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdVendorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdVendorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdAccountDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdVendorDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edAccountForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edAccountList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edVendorForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edVendorList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/config/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/config/application.yml" afterDir="false" />
     </list>
@@ -105,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdUserAccountMapping.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="236">
+              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -237,7 +242,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543760216775" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543761738691" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -321,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543760009098</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="re-generate the source code">
+      <created>1543761620443</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543761620443</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -640,8 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdUserAccountMapping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+        <state relative-caret-position="236">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
         </state>
       </provider>
     </entry>
