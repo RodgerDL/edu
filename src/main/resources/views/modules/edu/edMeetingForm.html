@@ -1,4 +1,4 @@
-<% layout('/layouts/default.html', {title: '会议表管理', libs: ['validate','dataGrid']}){ %>
+<% layout('/layouts/default.html', {title: '会议管理', libs: ['validate','ueditor','dataGrid']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header with-border">
@@ -134,7 +134,20 @@ $("#edUserAccountMappingDataGrid").dataGrid({
 		{header:'状态', name:'status', editable:true, hidden:true},
 		{header:'主键', name:'mappingCode', editable:true, hidden:true},
 		{header:'${text('会议编号')}', name:'meetingCode.meetingCode', editable:true, hidden:true},
-		{header:'${text('学员编号')}', name:'userCode', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'64', 'class':'form-control required'}},
+		{header:'学员', name:'testUser', width:150,
+			formatter: function(val, obj, row, act){
+				return js.val(row, 'testUser.userCode')+'|'+js.val(row, 'testUser.userName');
+			}, editable: true, edittype: "custom", editoptions: {
+				custom_element: function(val, editOptions) {
+					return js.template('treeselectTpl', {
+						id: 'user_'+editOptions.id, title: '学员选择',
+						name: 'testUser.userCode', value: val.split('|')[0],
+						labelName: 'testUser.userName', labelValue: val.split('|')[1],
+						url: '${ctx}/sys/office/treeData?isLoadUser=true', cssClass: ''
+					});
+				}
+			}
+		},
 		{header:'${text('视频账号编号')}', name:'accountCode', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'64', 'class':'form-control required'}},
 		{header:'${text('备注')}', name:'remarks', width:150, editable:true, edittype:'textarea', editoptions:{'maxlength':'2000', 'class':'form-control', 'rows':'1'}},
 		{header:'${text('操作')}', name:'actions', width:80, sortable:false, fixed:true, formatter: function(val, obj, row, act){
@@ -164,6 +177,11 @@ $("#edUserAccountMappingDataGrid").dataGrid({
 	}
 });
 </script>
+<script id="treeselectTpl" type="text/template">//<!--<div>
+<#form:treeselect id="{{d.id}}" title="{{d.title}}" name="{{d.name}}" value="{{d.value}}"
+	labelName="{{d.labelName}}" labelValue="{{d.labelValue}}" url="{{d.url}}"
+	class="{{d.cssClass}}" btnClass="btn-sm" allowClear="true"/>
+</div>//--></script>
 <script>
 $("#inputForm").validate({
 	submitHandler: function(form){

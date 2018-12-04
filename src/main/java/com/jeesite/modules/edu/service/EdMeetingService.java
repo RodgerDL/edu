@@ -47,7 +47,6 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 	/**
 	 * 查询分页数据
 	 * @param edMeeting 查询条件
-	 * @param edMeeting.page 分页对象
 	 * @return
 	 */
 	@Override
