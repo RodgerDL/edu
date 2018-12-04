@@ -5,7 +5,6 @@ package com.jeesite.modules.edu.entity;
 
 import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
-import javax.validation.constraints.NotNull;
 
 import com.jeesite.common.entity.DataEntity;
 import com.jeesite.common.mybatis.annotation.Column;
@@ -13,52 +12,50 @@ import com.jeesite.common.mybatis.annotation.Table;
 import com.jeesite.common.mybatis.mapper.query.QueryType;
 
 /**
- * 会议预定表Entity
+ * 会议表Entity
  * @author Roger
- * @version 2018-12-02
+ * @version 2018-12-04
  */
 @Table(name="ed_user_account_mapping", alias="a", columns={
-		@Column(name="mapping_code", attrName="mappingCode.scheduleCode", label="学员视频账号关系表", isPK=true),
-		@Column(name="meeting_code", attrName="meetingCode", label="会议编号"),
+		@Column(name="mapping_code", attrName="mappingCode", label="学员视频账号关系表", isPK=true),
+		@Column(name="meeting_code", attrName="meetingCode.meetingCode", label="会议编号"),
 		@Column(name="user_code", attrName="userCode", label="学员编号"),
 		@Column(name="account_code", attrName="accountCode", label="视频账号编号"),
-		@Column(name="deleted", attrName="deleted", label="是否删除"),
 		@Column(includeEntity=DataEntity.class),
 	}, orderBy="a.create_date ASC"
 )
 public class EdUserAccountMapping extends DataEntity<EdUserAccountMapping> {
 	
 	private static final long serialVersionUID = 1L;
-	private EdMeetingSchedule mappingCode;		// 学员视频账号关系表 父类
-	private String meetingCode;		// 会议编号
+	private String mappingCode;		// 学员视频账号关系表
+	private EdMeeting meetingCode;		// 会议编号 父类
 	private String userCode;		// 学员编号
 	private String accountCode;		// 视频账号编号
-	private Integer deleted;		// 是否删除
 	
 	public EdUserAccountMapping() {
 		this(null);
 	}
 
 
-	public EdUserAccountMapping(EdMeetingSchedule mappingCode){
-		this.mappingCode = mappingCode;
+	public EdUserAccountMapping(EdMeeting meetingCode){
+		this.meetingCode = meetingCode;
 	}
 	
-	public EdMeetingSchedule getMappingCode() {
+	public String getMappingCode() {
 		return mappingCode;
 	}
 
-	public void setMappingCode(EdMeetingSchedule mappingCode) {
+	public void setMappingCode(String mappingCode) {
 		this.mappingCode = mappingCode;
 	}
 	
 	@NotBlank(message="会议编号不能为空")
 	@Length(min=0, max=64, message="会议编号长度不能超过 64 个字符")
-	public String getMeetingCode() {
+	public EdMeeting getMeetingCode() {
 		return meetingCode;
 	}
 
-	public void setMeetingCode(String meetingCode) {
+	public void setMeetingCode(EdMeeting meetingCode) {
 		this.meetingCode = meetingCode;
 	}
 	
@@ -80,15 +77,6 @@ public class EdUserAccountMapping extends DataEntity<EdUserAccountMapping> {
 
 	public void setAccountCode(String accountCode) {
 		this.accountCode = accountCode;
-	}
-	
-	@NotNull(message="是否删除不能为空")
-	public Integer getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Integer deleted) {
-		this.deleted = deleted;
 	}
 	
 }

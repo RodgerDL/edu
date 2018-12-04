@@ -8,9 +8,9 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.edu.entity.EdUserAccountMapping;
 
 /**
- * 会议预定表DAO接口
+ * 会议表DAO接口
  * @author Roger
- * @version 2018-12-02
+ * @version 2018-12-04
  */
 @MyBatisDao
 public interface EdUserAccountMappingDao extends CrudDao<EdUserAccountMapping> {
