@@ -47,7 +47,6 @@ public class EdVendorService extends CrudService<EdVendorDao, EdVendor> {
 	/**
 	 * 查询分页数据
 	 * @param edVendor 查询条件
-	 * @param edVendor.page 分页对象
 	 * @return
 	 */
 	@Override

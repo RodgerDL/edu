@@ -46,6 +46,7 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	private Date planEndTime;		// 计划结束时间
 	private Date actualStartTime;		// 实际开始时间
 	private Date actualEndTime;		// 实际结束时间
+    private List<EdAccount> edAccountList = ListUtils.newArrayList(); // 账号列表
 	private List<EdUserAccountMapping> edUserAccountMappingList = ListUtils.newArrayList();		// 子表列表
 	
 	public EdMeeting() {
@@ -83,7 +84,7 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 		this.count = count;
 	}
 	
-	@NotBlank(message="邀请码不能为空")
+//	@NotBlank(message="邀请码不能为空")
 	@Length(min=0, max=100, message="邀请码长度不能超过 100 个字符")
 	public String getInviteCode() {
 		return inviteCode;
@@ -130,8 +131,16 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	public void setActualEndTime(Date actualEndTime) {
 		this.actualEndTime = actualEndTime;
 	}
-	
-	public List<EdUserAccountMapping> getEdUserAccountMappingList() {
+
+    public List<EdAccount> getEdAccountList() {
+        return edAccountList;
+    }
+
+    public void setEdAccountList(List<EdAccount> edAccountList) {
+        this.edAccountList = edAccountList;
+    }
+
+    public List<EdUserAccountMapping> getEdUserAccountMappingList() {
 		return edUserAccountMappingList;
 	}
 

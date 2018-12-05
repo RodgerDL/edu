@@ -5,6 +5,8 @@ package com.jeesite.modules.edu.service;
 
 import java.util.List;
 
+import com.jeesite.modules.edu.dao.EdAccountDao;
+import com.jeesite.modules.edu.entity.EdAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +29,9 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 	
 	@Autowired
 	private EdUserAccountMappingDao edUserAccountMappingDao;
+
+    @Autowired
+    private EdAccountDao edAccountDao;
 	
 	/**
 	 * 获取单条数据
@@ -40,6 +45,10 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 			EdUserAccountMapping edUserAccountMapping = new EdUserAccountMapping(entity);
 			edUserAccountMapping.setStatus(EdUserAccountMapping.STATUS_NORMAL);
 			entity.setEdUserAccountMappingList(edUserAccountMappingDao.findList(edUserAccountMapping));
+
+            EdAccount edAccount = new EdAccount();
+            edAccount.setStatus(EdAccount.STATUS_NORMAL);
+            entity.setEdAccountList(edAccountDao.findList(edAccount));
 		}
 		return entity;
 	}

@@ -14,5 +14,5 @@ import com.jeesite.modules.edu.entity.EdAccount;
  */
 @MyBatisDao
 public interface EdAccountDao extends CrudDao<EdAccount> {
-	
+
 }
