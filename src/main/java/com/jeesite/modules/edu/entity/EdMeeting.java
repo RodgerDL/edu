@@ -4,6 +4,8 @@
 package com.jeesite.modules.edu.entity;
 
 import javax.validation.constraints.NotBlank;
+
+import com.jeesite.modules.sys.entity.User;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -26,6 +28,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 @Table(name="ed_meeting", alias="a", columns={
 		@Column(name="meeting_code", attrName="meetingCode", label="会议编号", isPK=true),
 		@Column(name="name", attrName="name", label="会议名称", queryType=QueryType.LIKE),
+        @Column(name="teacher_code", attrName="testUser.userCode", label="老师编号"),
 		@Column(name="count", attrName="count", label="参加人数"),
 		@Column(name="invite_code", attrName="inviteCode", label="邀请码"),
 		@Column(name="plan_start_time", attrName="planStartTime", label="计划开始时间"),
@@ -33,13 +36,21 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 		@Column(name="actual_start_time", attrName="actualStartTime", label="实际开始时间"),
 		@Column(name="actual_end_time", attrName="actualEndTime", label="实际结束时间"),
 		@Column(includeEntity=DataEntity.class),
-	}, orderBy="a.update_date DESC"
+	}, joinTable={
+        @JoinTable(type= JoinTable.Type.LEFT_JOIN, entity= User.class, attrName="testUser", alias="u12",
+                on="u12.user_code = a.teacher_code", columns={
+                @Column(name="user_code", attrName="userCode", label="用户编码", isPK=true),
+                @Column(name="user_name", attrName="userName", label="用户名称", isQuery=false),
+        }),
+    }, orderBy="a.plan_start_time DESC"
 )
 public class EdMeeting extends DataEntity<EdMeeting> {
 	
 	private static final long serialVersionUID = 1L;
 	private String meetingCode;		// 会议编号
 	private String name;		// 会议名称
+//    private String teacherCode; //老师编号
+    private User testUser;		// 老师编号
 	private Integer count;		// 参加人数
 	private String inviteCode;		// 邀请码
 	private Date planStartTime;		// 计划开始时间
@@ -64,8 +75,16 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	public void setMeetingCode(String meetingCode) {
 		this.meetingCode = meetingCode;
 	}
-	
-	@NotBlank(message="会议名称不能为空")
+
+    public User getTestUser() {
+        return testUser;
+    }
+
+    public void setTestUser(User testUser) {
+        this.testUser = testUser;
+    }
+
+    @NotBlank(message="会议名称不能为空")
 	@Length(min=0, max=100, message="会议名称长度不能超过 100 个字符")
 	public String getName() {
 		return name;

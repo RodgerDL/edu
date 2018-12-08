@@ -6,6 +6,9 @@ package com.jeesite.modules.edu.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeesite.common.mybatis.mapper.query.QueryType;
+import com.jeesite.modules.sys.utils.EmpUtils;
+import com.jeesite.modules.sys.utils.UserUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,7 +54,18 @@ public class EdMeetingController extends BaseController {
 		model.addAttribute("edMeeting", edMeeting);
 		return "modules/edu/edMeetingList";
 	}
-	
+
+    /**
+     * 查询列表
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = {"myList", ""})
+    public String myList(EdMeeting edMeeting, Model model) {
+        edMeeting.setTestUser(UserUtils.getUser());
+        model.addAttribute("edMeeting", edMeeting);
+        return "modules/edu/edMyMeetingList";
+    }
+
 	/**
 	 * 查询列表数据
 	 */
@@ -63,6 +77,20 @@ public class EdMeetingController extends BaseController {
 		Page<EdMeeting> page = edMeetingService.findPage(edMeeting); 
 		return page;
 	}
+
+    /**
+     * 查询当前用户的列表数据
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = "myListData")
+    @ResponseBody
+    public Page<EdMeeting> myListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
+        edMeeting.setPage(new Page<>(request, response));
+        edMeeting.getSqlMap().getWhere().disableAutoAddCorpCodeWhere()
+                .and("teacher_code", QueryType.EQ, UserUtils.getUser().getUserCode());
+        Page<EdMeeting> page = edMeetingService.findPage(edMeeting);
+        return page;
+    }
 
 	/**
 	 * 查看编辑表单

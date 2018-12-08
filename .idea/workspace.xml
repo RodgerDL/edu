@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa5e369-2937-4a5d-a69b-011b71316fff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMyMeetingList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdAccountDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdVendorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdVendorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdAccountDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdAccountDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/jeesite/modules/test/service/TestDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/jeesite/modules/test/service/TestDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/jeesite/modules/test/service/TestTreeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/jeesite/modules/test/service/TestTreeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/config/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/config/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/" />
@@ -24,31 +25,31 @@
     <session id="-421229468">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="3" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="1" />
-          <entry key="class" value="16" />
+          <entry key="class" value="17" />
           <entry key="erm" value="1" />
-          <entry key="html" value="32" />
-          <entry key="java" value="97" />
+          <entry key="html" value="40" />
+          <entry key="java" value="104" />
           <entry key="xml" value="12" />
           <entry key="yml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="16" />
-          <entry key="HTML" value="32" />
-          <entry key="JAVA" value="97" />
+          <entry key="CLASS" value="17" />
+          <entry key="HTML" value="40" />
+          <entry key="JAVA" value="104" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="12" />
           <entry key="YAML" value="4" />
@@ -56,18 +57,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="220" />
-          <entry key="java" value="359" />
-          <entry key="txt" value="50" />
+          <entry key="html" value="319" />
+          <entry key="java" value="567" />
+          <entry key="txt" value="80" />
           <entry key="xml" value="11" />
           <entry key="yml" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="220" />
-          <entry key="JAVA" value="359" />
-          <entry key="PLAIN_TEXT" value="50" />
+          <entry key="HTML" value="319" />
+          <entry key="JAVA" value="567" />
+          <entry key="PLAIN_TEXT" value="80" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="30" />
         </counts>
@@ -77,61 +78,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMyMeetingList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+            <state relative-caret-position="1233">
+              <caret line="82" column="8" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/config/application.yml">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state relative-caret-position="-1415">
+              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="87" column="37" lean-forward="true" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
-              <folding>
-                <element signature="e#3813#3814#0" expanded="true" />
-                <element signature="e#3849#3850#0" expanded="true" />
-                <element signature="e#3916#3917#0" expanded="true" />
-                <element signature="e#3966#3967#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/test/testDataForm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="210" selection-start-line="210" selection-end-line="217" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdAccount.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="30" column="29" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="608">
+              <caret line="86" column="37" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -140,7 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>provided</find>
       <find>groupGrid</find>
       <find>create_date</find>
       <find>get</find>
@@ -169,6 +136,8 @@
       <find>jeesite demo</find>
       <find>jeesite</find>
       <find>2018 JeeSite Demo - Powered</find>
+      <find>归属</find>
+      <find>官方网站</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,7 +149,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdMeetingScheduleDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdVideoAccount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdVideoAccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingScheduleController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingScheduleList.html" />
@@ -192,9 +160,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdAccountDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdAccountDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html" />
         <option value="$PROJECT_DIR$/src/main/resources/config/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/TestDataController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/modules/edu/edMyMeetingList.html" />
       </list>
     </option>
   </component>
@@ -206,8 +178,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -216,35 +188,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -315,20 +258,18 @@
               <item name="com.jeesite" type="1f31426a:PackageElementNode" />
               <item name="modules" type="1f31426a:PackageElementNode" />
               <item name="test" type="1f31426a:PackageElementNode" />
-              <item name="dao" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="edu" type="58d84e3e:PackageViewProjectNode" />
-              <item name="edu" type="616d4139:PackageViewModuleNode" />
-              <item name="com.jeesite" type="1f31426a:PackageElementNode" />
-              <item name="modules" type="1f31426a:PackageElementNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
-              <item name="entity" type="1f31426a:PackageElementNode" />
+              <item name="web" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="edu" type="58d84e3e:PackageViewProjectNode" />
               <item name="edu" type="616d4139:PackageViewModuleNode" />
               <item name="views.modules" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="edu" type="58d84e3e:PackageViewProjectNode" />
+              <item name="edu" type="616d4139:PackageViewModuleNode" />
+              <item name="views.modules" type="1f31426a:PackageElementNode" />
+              <item name="demo" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="edu" type="58d84e3e:PackageViewProjectNode" />
@@ -336,11 +277,34 @@
               <item name="views.modules" type="1f31426a:PackageElementNode" />
               <item name="edu" type="1f31426a:PackageElementNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
             <path>
-              <item name="edu" type="58d84e3e:PackageViewProjectNode" />
-              <item name="edu" type="616d4139:PackageViewModuleNode" />
-              <item name="views.modules" type="1f31426a:PackageElementNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
+              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -349,7 +313,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544025438478" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544285505326" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/views/modules/edu" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -461,13 +430,20 @@
       <option name="project" value="LOCAL" />
       <updated>1543938055728</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="create the meeting management">
+      <created>1544025495615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544025495616</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17355044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17474186" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -477,7 +453,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.27991137" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.26661742" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.32791728" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -502,36 +478,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update application.yml" />
     <MESSAGE value="re-generate the source code" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-generate the source code" />
+    <MESSAGE value="create the meeting management" />
+    <option name="LAST_COMMIT_MESSAGE" value="create the meeting management" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/TestDataController.java</url>
-          <line>83</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/TestDataController.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="UserUtils.getUser()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>UserUtils.getUser()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdVideoAccount.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdVideoAccountController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoDataGridGroupGrid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -571,21 +537,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/TestDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="90" column="46" lean-forward="true" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingScheduleList.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoFormLayoutForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="232" column="101" lean-forward="true" selection-start-line="232" selection-start-column="101" selection-end-line="232" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoFormTableForm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
@@ -609,35 +561,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingScheduleController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingScheduleService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingScheduleForm.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/DemoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1085#1086#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappings/modules/edu/EdMeetingDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdMeetingDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoFormEditForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="336" column="10" selection-start-line="336" selection-start-column="10" selection-end-line="336" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -662,27 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdUserAccountMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/entity/TestDataChild.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="711">
           <caret line="45" column="74" lean-forward="true" selection-start-line="45" selection-start-column="74" selection-end-line="45" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -752,47 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/test/testDataForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="210" selection-start-line="210" selection-end-line="217" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="87" column="37" lean-forward="true" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
-          <folding>
-            <element signature="e#3813#3814#0" expanded="true" />
-            <element signature="e#3849#3850#0" expanded="true" />
-            <element signature="e#3916#3917#0" expanded="true" />
-            <element signature="e#3966#3967#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/package.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -800,10 +669,128 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/test/testDataForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5460">
+          <caret line="210" selection-start-line="210" selection-end-line="217" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/service/EdMeetingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        <state relative-caret-position="650">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/dao/EdMeetingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdUserAccountMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoFormEditForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="94" column="71" lean-forward="true" selection-start-line="94" selection-start-column="71" selection-end-line="94" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/demo/demoFormLayoutForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6422">
+          <caret line="247" column="41" lean-forward="true" selection-start-line="247" selection-start-column="41" selection-end-line="247" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2690">
+          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/entity/EdMeeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="40" column="62" lean-forward="true" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+          <folding>
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#2969#2970#0" expanded="true" />
+            <element signature="e#3015#3016#0" expanded="true" />
+            <element signature="e#3055#3056#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/TestDataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/test/web/DemoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding>
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jeesite/jeesite-framework/4.1.1-SNAPSHOT/jeesite-framework-4.1.1-20181205.123159-6.jar!/com/jeesite/common/web/BaseController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="21" selection-start-line="21" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jeesite/modules/edu/web/EdMeetingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="86" column="37" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMyMeetingList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1233">
+          <caret line="82" column="8" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/edu/edMeetingList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1415">
+          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
         </state>
       </provider>
     </entry>

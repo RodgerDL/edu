@@ -1,9 +1,9 @@
-<% layout('/layouts/default.html', {title: '会议管理', libs: ['validate','ueditor','dataGrid']}){ %>
+<% layout('/layouts/default.html', {title: '课程管理', libs: ['validate','ueditor','dataGrid']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header with-border">
 			<div class="box-title">
-				<i class="fa fa-list-alt"></i> ${text(edMeeting.isNewRecord ? '新增会议表' : '编辑会议表')}
+				<i class="fa fa-list-alt"></i> ${text(edMeeting.isNewRecord ? '新增课程' : '编辑课程')}
 			</div>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -11,13 +11,13 @@
 		</div>
 		<#form:form id="inputForm" model="${edMeeting}" action="${ctx}/edu/edMeeting/save" method="post" class="form-horizontal">
 			<div class="box-body">
-				<div class="form-unit">${text('基本信息')}</div>
+				<div class="form-unit">${text('课程信息')}</div>
 				<#form:hidden path="meetingCode"/>
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('会议名称')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('课程名称')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="name" maxlength="100" class="form-control required"/>
 							</div>
@@ -26,7 +26,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('参加人数')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('人数')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="count" maxlength="10" class="form-control required digits"/>
 							</div>
@@ -34,6 +34,18 @@
 					</div>
 				</div>
 				<div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" title="">
+                                <span class="required ">*</span> 老师选择：<i class="fa icon-question hide"></i></label>
+                            <div class="col-sm-8">
+                                <#form:treeselect id="testUser" title="老师选择"
+                                path="testUser.userCode" labelPath="testUser.userName"
+                                url="${ctx}/sys/office/treeData?isLoadUser=true"
+                                class="" allowClear="true"/>
+                            </div>
+                        </div>
+                    </div>
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
@@ -43,18 +55,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-6">
-						<div class="form-group">
-							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('计划开始时间')}：<i class="fa icon-question hide"></i></label>
-							<div class="col-sm-8">
-                                <#form:input path="planStartTime" readonly="true" maxlength="20" class="form-control Wdate required"
-                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" title="">
+                                <span class="required ">*</span> ${text('计划开始时间')}：<i class="fa icon-question hide"></i></label>
+                            <div class="col-sm-8">
+                                <#form:input path="planStartTime" readonly="true" maxlength="20" class="form-control Wdate required"
+                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
+                            </div>
+                        </div>
+                    </div>
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
@@ -65,18 +77,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-6">
-						<div class="form-group">
-							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('实际开始时间')}：<i class="fa icon-question hide"></i></label>
-							<div class="col-sm-8">
-                                <#form:input path="actualStartTime" readonly="true" maxlength="20" class="form-control Wdate"
-                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" title="">
+                                <span class="required hide">*</span> ${text('实际开始时间')}：<i class="fa icon-question hide"></i></label>
+                            <div class="col-sm-8">
+                                <#form:input path="actualStartTime" readonly="true" maxlength="20" class="form-control Wdate"
+                                dataFormat="datetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:false});"/>
+                            </div>
+                        </div>
+                    </div>
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
