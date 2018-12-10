@@ -102,6 +102,16 @@ public class EdMeetingController extends BaseController {
 		return "modules/edu/edMeetingForm";
 	}
 
+    /**
+     * 查看编辑表单
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = "myForm")
+    public String myForm(EdMeeting edMeeting, Model model) {
+        model.addAttribute("edMeeting", edMeeting);
+        return "modules/edu/edMyMeetingForm";
+    }
+
 	/**
 	 * 保存会议表
 	 */

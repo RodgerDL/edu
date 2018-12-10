@@ -86,7 +86,7 @@ $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
 		{header:'${text('课程名称')}', name:'name', index:'a.name', width:150, align:"left",  frozen:true, formatter: function(val, obj, row, act){
-			return '<a href="${ctx}/edu/edMeeting/form?meetingCode='+row.meetingCode+'" class="btnList" data-title="${text('编辑课程')}">'+(val||row.id)+'</a>';
+			return '<a href="${ctx}/edu/edMeeting/myForm?meetingCode='+row.meetingCode+'" class="btnList" data-title="${text('编辑课程')}">'+(val||row.id)+'</a>';
 		}},
 		{header:'${text('老师')}', name:'testUser.userName', index:'a.testUser', width:150, align:"center"},
 		{header:'${text('人数')}', name:'count', index:'a.count', width:80, align:"center"},

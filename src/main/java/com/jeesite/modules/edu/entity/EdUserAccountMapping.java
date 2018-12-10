@@ -30,6 +30,11 @@ import com.jeesite.common.mybatis.annotation.Table;
                 @Column(name="user_code", attrName="userCode", label="用户编码", isPK=true),
                 @Column(name="user_name", attrName="userName", label="用户名称", isQuery=false),
         }),
+        @JoinTable(type= JoinTable.Type.LEFT_JOIN, entity= EdAccount.class, attrName="testAccount", alias="u13",
+                on="u13.account_code = a.account_code", columns={
+                @Column(name="account_code", attrName="accountCode", label="视频账号编号", isPK=true),
+                @Column(name="name", attrName="name", label="视频账号名称", isQuery=false),
+        }),
     }, orderBy="a.create_date ASC"
 )
 public class EdUserAccountMapping extends DataEntity<EdUserAccountMapping> {
@@ -40,6 +45,7 @@ public class EdUserAccountMapping extends DataEntity<EdUserAccountMapping> {
 //	private String userCode;		// 学员编号
     private User testUser;		// 用户选择
     private String accountCode;		// 视频账号编号
+    private EdAccount testAccount;  // 视频账号
 	
 	public EdUserAccountMapping() {
 		this(null);
@@ -95,5 +101,12 @@ public class EdUserAccountMapping extends DataEntity<EdUserAccountMapping> {
 	public void setAccountCode(String accountCode) {
 		this.accountCode = accountCode;
 	}
-	
+
+    public EdAccount getTestAccount() {
+        return testAccount;
+    }
+
+    public void setTestAccount(EdAccount testAccount) {
+        this.testAccount = testAccount;
+    }
 }

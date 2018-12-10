@@ -17,7 +17,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
  * @version 2018-12-04
  */
 @Table(name="ed_account", alias="a", columns={
-		@Column(name="acount_code", attrName="acountCode", label="账号编号", isPK=true),
+		@Column(name="account_code", attrName="accountCode", label="账号编号", isPK=true),
 		@Column(name="vendor_code", attrName="vendorCode.venderCode", label="供应商编号"),
 		@Column(name="name", attrName="name", label="账号名称", queryType=QueryType.LIKE),
 		@Column(name="password", attrName="password", label="账号密码"),
@@ -28,7 +28,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 public class EdAccount extends DataEntity<EdAccount> {
 	
 	private static final long serialVersionUID = 1L;
-	private String acountCode;		// 账号编号
+	private String accountCode;		// 账号编号
 	private EdVendor vendorCode;		// 供应商编号 父类
 	private String name;		// 账号名称
 	private String password;		// 账号密码
@@ -43,12 +43,12 @@ public class EdAccount extends DataEntity<EdAccount> {
 		this.vendorCode = vendorCode;
 	}
 	
-	public String getAcountCode() {
-		return acountCode;
+	public String getAccountCode() {
+		return accountCode;
 	}
 
-	public void setAcountCode(String acountCode) {
-		this.acountCode = acountCode;
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
 	}
 	
 	@NotBlank(message="供应商编号不能为空")
