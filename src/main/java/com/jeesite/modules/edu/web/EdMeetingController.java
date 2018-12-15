@@ -6,8 +6,9 @@ package com.jeesite.modules.edu.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeesite.common.collect.MapUtils;
 import com.jeesite.common.mybatis.mapper.query.QueryType;
-import com.jeesite.modules.sys.utils.EmpUtils;
+import com.jeesite.modules.edu.entity.EdStudentMeeting;
 import com.jeesite.modules.sys.utils.UserUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import com.jeesite.common.entity.Page;
 import com.jeesite.common.web.BaseController;
 import com.jeesite.modules.edu.entity.EdMeeting;
 import com.jeesite.modules.edu.service.EdMeetingService;
+
+import java.util.Map;
 
 /**
  * 会议表Controller
@@ -56,14 +59,23 @@ public class EdMeetingController extends BaseController {
 	}
 
     /**
-     * 查询列表
+     * 查询老师课程列表
      */
     @RequiresPermissions("edu:edMeeting:view")
-    @RequestMapping(value = {"myList", ""})
-    public String myList(EdMeeting edMeeting, Model model) {
-        edMeeting.setTestUser(UserUtils.getUser());
+    @RequestMapping(value = {"teacherMyList", ""})
+    public String teacherMyList(EdMeeting edMeeting, Model model) {
         model.addAttribute("edMeeting", edMeeting);
-        return "modules/edu/edMyMeetingList";
+        return "modules/edu/edTeacherMyMeetingList";
+    }
+
+    /**
+     * 查询学生课程列表
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = {"studentMyList", ""})
+    public String studentMyList(EdMeeting edMeeting, Model model) {
+        model.addAttribute("edMeeting", edMeeting);
+        return "modules/edu/edStudentMyMeetingList";
     }
 
 	/**
@@ -82,13 +94,26 @@ public class EdMeetingController extends BaseController {
      * 查询当前用户的列表数据
      */
     @RequiresPermissions("edu:edMeeting:view")
-    @RequestMapping(value = "myListData")
+    @RequestMapping(value = "teacherMyListData")
     @ResponseBody
-    public Page<EdMeeting> myListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
+    public Page<EdMeeting> teacherMyListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
         edMeeting.setPage(new Page<>(request, response));
         edMeeting.getSqlMap().getWhere().disableAutoAddCorpCodeWhere()
                 .and("teacher_code", QueryType.EQ, UserUtils.getUser().getUserCode());
         Page<EdMeeting> page = edMeetingService.findPage(edMeeting);
+        return page;
+    }
+
+    /**
+     * 查询当前用户的列表数据
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = "studentMyListData")
+    @ResponseBody
+    public Page<EdStudentMeeting> studentMyListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
+        Map<String, Object> params = MapUtils.newHashMap();
+		params.put("userCode", UserUtils.getUser().getUserCode());
+        Page<EdStudentMeeting> page = edMeetingService.findListForStudent(params);
         return page;
     }
 
@@ -103,13 +128,23 @@ public class EdMeetingController extends BaseController {
 	}
 
     /**
-     * 查看编辑表单
+     * 查看老师课程表单
      */
     @RequiresPermissions("edu:edMeeting:view")
-    @RequestMapping(value = "myForm")
-    public String myForm(EdMeeting edMeeting, Model model) {
+    @RequestMapping(value = "teacherMyForm")
+    public String teacherMyForm(EdMeeting edMeeting, Model model) {
         model.addAttribute("edMeeting", edMeeting);
-        return "modules/edu/edMyMeetingForm";
+        return "modules/edu/edTeacherMyMeetingForm";
+    }
+
+    /**
+     * 查看学生课程表单
+     */
+    @RequiresPermissions("edu:edMeeting:view")
+    @RequestMapping(value = "studentMyForm")
+    public String studentMyForm(EdMeeting edMeeting, Model model) {
+        model.addAttribute("edMeeting", edMeeting);
+        return "modules/edu/edStudentMyMeetingForm";
     }
 
 	/**

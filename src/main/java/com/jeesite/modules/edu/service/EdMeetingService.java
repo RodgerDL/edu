@@ -4,9 +4,11 @@
 package com.jeesite.modules.edu.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jeesite.modules.edu.dao.EdAccountDao;
 import com.jeesite.modules.edu.entity.EdAccount;
+import com.jeesite.modules.edu.entity.EdStudentMeeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +34,10 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 
     @Autowired
     private EdAccountDao edAccountDao;
-	
+
+    @Autowired
+    private EdMeetingDao edMeetingDao;
+
 	/**
 	 * 获取单条数据
 	 * @param edMeeting
@@ -62,6 +67,20 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 	public Page<EdMeeting> findPage(EdMeeting edMeeting) {
 		return super.findPage(edMeeting);
 	}
+
+    /**
+     * 查询学生课程
+     * @param params 查询条件
+     * @return
+     */
+    public Page<EdStudentMeeting> findListForStudent(Map params) {
+
+//		pageMap.setList(dao.findListForMap(params));
+        List<EdStudentMeeting> edMeetingList = edMeetingDao.findListForStudent(params);
+        Page<EdStudentMeeting> edMeetingPage = new Page<>();
+        edMeetingPage.setList(edMeetingList);
+        return edMeetingPage;
+    }
 	
 	/**
 	 * 保存数据（插入或更新）
