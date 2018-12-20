@@ -12,7 +12,7 @@ import java.net.URL;
 /**
  * @author Roger
  */
-public class requestUtils {
+public class RequestUtils {
 
     private static String userAgent = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36";
     private static String requestURL= "https://e-all.webex.com.cn/WBXService/XMLService";
