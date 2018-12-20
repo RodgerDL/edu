@@ -18,7 +18,7 @@ public class requestUtils {
     private static String requestURL= "https://e-all.webex.com.cn/WBXService/XMLService";
 
     // 创建会议Request Body
-    private static String createMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.CreateMeeting\"><accessControl><meetingPassword>meetingPwd</meetingPassword></accessControl><metaData><confName>meetingTitle</confName><agenda></agenda></metaData><schedule><startDate>planDate</startDate><duration>60</duration></schedule></bodyContent></body></serv:message>";
+    private static String createMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.CreateMeeting\"><accessControl><meetingPassword></meetingPassword></accessControl><metaData><confName>meetingTitle</confName><agenda></agenda></metaData><schedule><startDate>planDate</startDate><duration>60</duration></schedule></bodyContent></body></serv:message>";
 
     // 获得主持人开会地址Request Body
     private static String gethosturlMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.GethosturlMeeting\"><meetingKey>meetingId</meetingKey></bodyContent></body></serv:message>";
@@ -30,15 +30,14 @@ public class requestUtils {
      * 创建会议
      * @param webexID 账户用户
      * @param webexPwd 账户密码
-     * @param meetingPwd 会议密码
      * @param meetingTitle 会议标题
      * @param planDate 计划开始时间
      * @param duration 会议时长
      * @return meetingId 会议Key
      */
-    public static String creatMeeting (String webexID, String webexPwd, String meetingPwd, String meetingTitle, String planDate, String duration) throws IOException, DocumentException {
+    public static String creatMeeting (String webexID, String webexPwd, String meetingTitle, String planDate, String duration) throws IOException, DocumentException {
 
-        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingPwd", meetingPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
+        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
         String res = postMessage(requestURL, msg);
 
         Document doc = DocumentHelper.parseText(res);
