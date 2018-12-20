@@ -29,6 +29,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 		@Column(name="meeting_code", attrName="meetingCode", label="会议编号", isPK=true),
 		@Column(name="name", attrName="name", label="会议名称", queryType=QueryType.LIKE),
         @Column(name="teacher_code", attrName="testUser.userCode", label="老师编号"),
+        @Column(name="account_code", attrName="accountCode", label="视频账号编号"),
 		@Column(name="count", attrName="count", label="参加人数"),
 		@Column(name="invite_code", attrName="inviteCode", label="邀请码"),
 		@Column(name="plan_start_time", attrName="planStartTime", label="计划开始时间"),
@@ -41,7 +42,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
                 on="u12.user_code = a.teacher_code", columns={
                 @Column(name="user_code", attrName="userCode", label="用户编码", isPK=true),
                 @Column(name="user_name", attrName="userName", label="用户名称", isQuery=false),
-        }),
+        })
     }, orderBy="a.plan_start_time DESC"
 )
 public class EdMeeting extends DataEntity<EdMeeting> {
@@ -50,6 +51,7 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	private String meetingCode;		// 会议编号
 	private String name;		// 会议名称
     private User testUser;		// 老师编号
+    private String AccountCode;  // 视频账号
 	private Integer count;		// 参加人数
 	private String inviteCode;		// 邀请码
 	private Date planStartTime;		// 计划开始时间
@@ -81,6 +83,14 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 
     public void setTestUser(User testUser) {
         this.testUser = testUser;
+    }
+
+    public String getAccountCode() {
+        return AccountCode;
+    }
+
+    public void setAccountCode(String accountCode) {
+        AccountCode = accountCode;
     }
 
     @NotBlank(message="会议名称不能为空")
