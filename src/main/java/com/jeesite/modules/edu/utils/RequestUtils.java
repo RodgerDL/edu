@@ -127,7 +127,7 @@ public class RequestUtils {
 
     public static void main(String[] args) {
         try {
-            System.out.println(creatMeeting("eall_webex_account1", "P@ss12345678", "test111", "11/30/2015 10:00:00", ""));
+            System.out.println(creatMeeting("eall_webex_account1", "P@ss12345678", "class-11/30/2015 10:00:00", "11/30/2015 10:00:00", ""));
 //            System.out.println(getjoinurlMeeting("eall_webex_account1", "P@ss12345678", "601553473"));
         } catch (IOException ex) {
             // process the exception
