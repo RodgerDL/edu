@@ -37,7 +37,9 @@ public class RequestUtils {
      */
     public static String creatMeeting (String webexID, String webexPwd, String meetingTitle, String planDate, String duration) throws IOException, DocumentException {
 
+//        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
         String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
+
         String res = postMessage(requestURL, msg);
 
         Document doc = DocumentHelper.parseText(res);
@@ -125,7 +127,8 @@ public class RequestUtils {
 
     public static void main(String[] args) {
         try {
-            System.out.println(getjoinurlMeeting("eall_webex_account1", "P@ss12345678", "601553473"));
+            System.out.println(creatMeeting("eall_webex_account1", "P@ss12345678", "test111", "11/30/2015 10:00:00", ""));
+//            System.out.println(getjoinurlMeeting("eall_webex_account1", "P@ss12345678", "601553473"));
         } catch (IOException ex) {
             // process the exception
         } catch (DocumentException dx) {

@@ -3,12 +3,15 @@
  */
 package com.jeesite.modules.edu.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import com.jeesite.modules.edu.dao.EdAccountDao;
 import com.jeesite.modules.edu.entity.EdAccount;
 import com.jeesite.modules.edu.entity.EdStudentMeeting;
+import com.jeesite.modules.edu.utils.RequestUtils;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,6 +92,21 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 	@Override
 	@Transactional(readOnly=false)
 	public void save(EdMeeting edMeeting) {
+
+	    try {
+            EdAccount edAccount = new EdAccount();
+            edAccount.setAccountCode(edMeeting.getAccountCode());
+            edAccount = edAccountDao.get(edAccount);
+
+            String meetingId = RequestUtils.creatMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getName(), "11/30/2015 10:00:00", "");
+            edMeeting.setInviteCode(meetingId);
+
+        } catch (IOException ie) {
+
+        } catch (DocumentException ed) {
+
+        }
+
 		super.save(edMeeting);
 		// 保存 EdMeeting子表
 		for (EdUserAccountMapping edUserAccountMapping : edMeeting.getEdUserAccountMappingList()){

@@ -51,6 +51,7 @@ public class EdStudentMeeting extends DataEntity<EdStudentMeeting> {
 	private Date planEndTime;		// 计划结束时间
 	private Date actualStartTime;		// 实际开始时间
 	private Date actualEndTime;		// 实际结束时间
+    private String joinMeetingURL;
     private List<EdAccount> edAccountList = ListUtils.newArrayList(); // 账号列表
 	private List<EdUserAccountMapping> edUserAccountMappingList = ListUtils.newArrayList();		// 子表列表
 
@@ -152,6 +153,14 @@ public class EdStudentMeeting extends DataEntity<EdStudentMeeting> {
 	public void setActualEndTime(Date actualEndTime) {
 		this.actualEndTime = actualEndTime;
 	}
+
+    public String getJoinMeetingURL() {
+        return joinMeetingURL;
+    }
+
+    public void setJoinMeetingURL(String joinMeetingURL) {
+        this.joinMeetingURL = joinMeetingURL;
+    }
 
     public List<EdAccount> getEdAccountList() {
         return edAccountList;
