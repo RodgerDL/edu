@@ -59,6 +59,7 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 	private Date actualStartTime;		// 实际开始时间
 	private Date actualEndTime;		// 实际结束时间
     private String hostMeetingURL;
+    private String joinMeetingURL;
     private List<EdAccount> edAccountList = ListUtils.newArrayList(); // 账号列表
 	private List<EdUserAccountMapping> edUserAccountMappingList = ListUtils.newArrayList();		// 子表列表
 	
@@ -167,6 +168,14 @@ public class EdMeeting extends DataEntity<EdMeeting> {
 
     public void setHostMeetingURL(String hostMeetingURL) {
         this.hostMeetingURL = hostMeetingURL;
+    }
+
+    public String getJoinMeetingURL() {
+        return joinMeetingURL;
+    }
+
+    public void setJoinMeetingURL(String joinMeetingURL) {
+        this.joinMeetingURL = joinMeetingURL;
     }
 
     public List<EdAccount> getEdAccountList() {

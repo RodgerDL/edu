@@ -101,5 +101,15 @@ public class EdVendorService extends CrudService<EdVendorDao, EdVendor> {
 		edAccount.setVendorCode(edVendor);
 		edAccountDao.delete(edAccount);
 	}
+
+    /**
+     * 获取账号单条数据
+     * @param edAccount
+     * @return
+     */
+    public EdAccount getAccount(EdAccount edAccount) {
+        EdAccount entity = edAccountDao.get(edAccount);
+        return entity;
+    }
 	
 }

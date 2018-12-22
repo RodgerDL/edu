@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jeesite.common.collect.MapUtils;
+import com.jeesite.common.lang.StringUtils;
 import com.jeesite.common.mybatis.mapper.query.QueryType;
+import com.jeesite.modules.edu.entity.EdAccount;
 import com.jeesite.modules.edu.entity.EdStudentMeeting;
+import com.jeesite.modules.edu.service.EdVendorService;
 import com.jeesite.modules.edu.utils.RequestUtils;
 import com.jeesite.modules.sys.utils.UserUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +31,7 @@ import com.jeesite.common.web.BaseController;
 import com.jeesite.modules.edu.entity.EdMeeting;
 import com.jeesite.modules.edu.service.EdMeetingService;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -40,6 +45,9 @@ public class EdMeetingController extends BaseController {
 
 	@Autowired
 	private EdMeetingService edMeetingService;
+
+	@Autowired
+    private EdVendorService edVendorService;
 	
 	/**
 	 * 获取数据
@@ -134,6 +142,18 @@ public class EdMeetingController extends BaseController {
     @RequiresPermissions("edu:edMeeting:view")
     @RequestMapping(value = "teacherMyForm")
     public String teacherMyForm(EdMeeting edMeeting, Model model) {
+        EdAccount edAccount = new EdAccount();
+        edAccount.setAccountCode(edMeeting.getAccountCode());
+        edAccount = edVendorService.getAccount(edAccount);
+        String hostURL = "";
+        try {
+            hostURL = RequestUtils.gethosturlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
+        } catch (IOException ie) {
+
+        } catch (DocumentException de) {
+
+        }
+        edMeeting.setHostMeetingURL(hostURL);
         model.addAttribute("edMeeting", edMeeting);
         return "modules/edu/edTeacherMyMeetingForm";
     }
@@ -144,6 +164,18 @@ public class EdMeetingController extends BaseController {
     @RequiresPermissions("edu:edMeeting:view")
     @RequestMapping(value = "studentMyForm")
     public String studentMyForm(EdMeeting edMeeting, Model model) {
+        EdAccount edAccount = new EdAccount();
+        edAccount.setAccountCode(edMeeting.getAccountCode());
+        edAccount = edVendorService.getAccount(edAccount);
+        String joinURL = "";
+        try {
+            joinURL = RequestUtils.getjoinurlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
+        } catch (IOException ie) {
+
+        } catch (DocumentException de) {
+
+        }
+        edMeeting.setJoinMeetingURL(joinURL);
         model.addAttribute("edMeeting", edMeeting);
         return "modules/edu/edStudentMyMeetingForm";
     }
