@@ -12,7 +12,7 @@
 		<#form:form id="inputForm" model="${edMeeting}" class="form-horizontal">
 			<div class="box-body">
 				<div class="form-unit">${text('课程信息')}</div>
-				<#form:hidden path="meetingCode"/>
+				<#form:hidden id="meetingCode" path="meetingCode"/>
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="form-group">
@@ -52,15 +52,15 @@
 							<!--</div>-->
 						<!--</div>-->
 					<!--</div>-->
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" title="">
-                                ${text('授课账号')}：<i class="fa icon-question hide"></i></label>
-                            <div class="col-sm-8">
-                                <#form:select readonly="true" path="accountCode" items="${edMeeting.edAccountList}" itemLabel="name" itemValue="accountCode" blankOption="true" class="form-control"/>
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="col-xs-6">-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="control-label col-sm-4" title="">-->
+                                <!--${text('授课账号')}：<i class="fa icon-question hide"></i></label>-->
+                            <!--<div class="col-sm-8">-->
+                                <!--<#form:select readonly="true" path="accountCode" items="${edMeeting.edAccountList}" itemLabel="name" itemValue="accountCode" blankOption="true" class="form-control"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 				</div>
 				<div class="row">
                     <div class="col-xs-6">
@@ -125,7 +125,8 @@
 			<div class="box-footer">
 				<div class="row">
 					<div class="col-sm-offset-2 col-sm-10">
-                        <a href="${edMeeting.hostMeetingURL}" target="_blank" class="btn btn-sm btn-primary" title="${text('开始上课')}"><i class="fa fa-check"></i> ${text('开始上课')}</a>
+                        <!--<a href="${edMeeting.hostMeetingURL}" id="startClass" target="_blank" class="btn btn-sm btn-primary" title="${text('开始上课')}"><i class="fa fa-check"></i> ${text('开始上课')}</a>-->
+                        <a id="startClass" target="_blank" class="btn btn-sm btn-primary" title="${text('开始上课')}"><i class="fa fa-check"></i> ${text('开始上课')}</a>
                         <button type="button" class="btn btn-sm btn-default" id="btnCancel" onclick="js.closeCurrentTabPage()"><i class="fa fa-reply-all"></i> ${text('关 闭')}</button>
 					</div>
 				</div>
@@ -203,5 +204,15 @@ $("#inputForm").validate({
 			}
 		}, "json");
     }
+});
+$('#startClass').click(function() {
+    var $this = this;
+    js.ajaxSubmit('${ctxPath}/a/edu/edMeeting/getHostURL', {
+        meetingCode: $('#meetingCode').val()
+    }, function(data){
+        if (data.result == 'true'){
+            window.open(data.message,'_black')
+        }
+    });
 });
 </script>

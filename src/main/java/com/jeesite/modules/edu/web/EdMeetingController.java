@@ -201,5 +201,31 @@ public class EdMeetingController extends BaseController {
 		edMeetingService.delete(edMeeting);
 		return renderResult(Global.TRUE, text("删除会议表成功！"));
 	}
+
+    /**
+     * 获取主持人开会地址
+     */
+    @PostMapping(value = "getHostURL")
+    @ResponseBody
+    public String getHostURL(String meetingCode) {
+        EdMeeting edMeeting = new EdMeeting();
+        edMeeting.setMeetingCode(meetingCode);
+        edMeeting = edMeetingService.get(edMeeting);
+        EdAccount edAccount = new EdAccount();
+        edAccount.setAccountCode(edMeeting.getAccountCode());
+        edAccount = edVendorService.getAccount(edAccount);
+        String hostURL = "";
+        try {
+            hostURL = RequestUtils.gethosturlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
+        } catch (IOException ie) {
+
+        } catch (DocumentException de) {
+
+        }
+        if (!hostURL.isEmpty()) {
+            return renderResult(Global.TRUE, hostURL);
+        }
+        return renderResult(Global.FALSE, "获取开会地址失败！");
+    }
 	
 }
