@@ -32,9 +32,7 @@ import java.util.List;
 		@Column(name="count", attrName="count", label="参加人数"),
 		@Column(name="invite_code", attrName="inviteCode", label="邀请码"),
 		@Column(name="plan_start_time", attrName="planStartTime", label="计划开始时间"),
-		@Column(name="plan_end_time", attrName="planEndTime", label="计划结束时间"),
-		@Column(name="actual_start_time", attrName="actualStartTime", label="实际开始时间"),
-		@Column(name="actual_end_time", attrName="actualEndTime", label="实际结束时间"),
+        @Column(name="duration", attrName="duration", label="会议时长"),
 		@Column(includeEntity=DataEntity.class),
 	}, orderBy="a.plan_start_time DESC"
 )
@@ -48,9 +46,7 @@ public class EdStudentMeeting extends DataEntity<EdStudentMeeting> {
 	private Integer count;		// 参加人数
 	private String inviteCode;		// 邀请码
 	private Date planStartTime;		// 计划开始时间
-	private Date planEndTime;		// 计划结束时间
-	private Date actualStartTime;		// 实际开始时间
-	private Date actualEndTime;		// 实际结束时间
+    private Integer duration;		// 会议时长
     private String joinMeetingURL;
     private List<EdAccount> edAccountList = ListUtils.newArrayList(); // 账号列表
 	private List<EdUserAccountMapping> edUserAccountMappingList = ListUtils.newArrayList();		// 子表列表
@@ -125,34 +121,15 @@ public class EdStudentMeeting extends DataEntity<EdStudentMeeting> {
 	public void setPlanStartTime(Date planStartTime) {
 		this.planStartTime = planStartTime;
 	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@NotNull(message="计划结束时间不能为空")
-	public Date getPlanEndTime() {
-		return planEndTime;
-	}
 
-	public void setPlanEndTime(Date planEndTime) {
-		this.planEndTime = planEndTime;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	public Date getActualStartTime() {
-		return actualStartTime;
-	}
+    @NotNull(message="课程时长不能为空")
+    public Integer getDuration() {
+        return duration;
+    }
 
-	public void setActualStartTime(Date actualStartTime) {
-		this.actualStartTime = actualStartTime;
-	}
-	
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	public Date getActualEndTime() {
-		return actualEndTime;
-	}
-
-	public void setActualEndTime(Date actualEndTime) {
-		this.actualEndTime = actualEndTime;
-	}
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 
     public String getJoinMeetingURL() {
         return joinMeetingURL;
