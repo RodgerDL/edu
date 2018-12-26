@@ -24,36 +24,6 @@
 						<#form:input path="count" maxlength="10" class="form-control width-120"/>
 					</div>
 				</div>
-				<!--<div class="form-group">-->
-					<!--<label class="control-label">${text('邀请码')}：</label>-->
-					<!--<div class="control-inline">-->
-						<!--<#form:input path="inviteCode" maxlength="100" class="form-control width-120"/>-->
-					<!--</div>-->
-				<!--</div>-->
-				<div class="form-group">
-					<label class="control-label">${text('计划开始时间')}：</label>
-					<div class="control-inline">
-						<#form:input path="planStartTime" class="form-control width-120"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label">${text('计划结束时间')}：</label>
-					<div class="control-inline">
-						<#form:input path="planEndTime" class="form-control width-120"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label">${text('实际开始时间')}：</label>
-					<div class="control-inline">
-						<#form:input path="actualStartTime" class="form-control width-120"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label">${text('实际结束时间')}：</label>
-					<div class="control-inline">
-						<#form:input path="actualEndTime" class="form-control width-120"/>
-					</div>
-				</div>
 				<div class="form-group">
 					<label class="control-label">${text('课程状态')}：</label>
 					<div class="control-inline width-120">
@@ -89,9 +59,6 @@ $('#dataGrid').dataGrid({
 		{header:'${text('人数')}', name:'count', index:'a.count', width:80, align:"center"},
 		<!--{header:'${text('邀请码')}', name:'inviteCode', index:'a.invite_code', width:80, align:"left"},-->
 		{header:'${text('计划开始时间')}', name:'planStartTime', index:'a.plan_start_time', width:150, align:"center"},
-		{header:'${text('计划结束时间')}', name:'planEndTime', index:'a.plan_end_time', width:150, align:"center"},
-		<!--{header:'${text('实际开始时间')}', name:'actualStartTime', index:'a.actual_start_time', width:150, align:"center"},-->
-		<!--{header:'${text('实际结束时间')}', name:'actualEndTime', index:'a.actual_end_time', width:150, align:"center"},-->
 		{header:'${text('课程状态')}', name:'status', index:'a.status', width:100, align:"center", formatter: function(val, obj, row, act){
 			return js.getDictLabel(${@DictUtils.getDictListJson('sys_search_status')}, val, '${text('未知')}', true);
 		}},

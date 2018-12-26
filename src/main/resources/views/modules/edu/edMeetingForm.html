@@ -46,15 +46,6 @@
                             </div>
                         </div>
                     </div>
-					<!--<div class="col-xs-6">-->
-						<!--<div class="form-group">-->
-							<!--<label class="control-label col-sm-4" title="">-->
-								<!--<span class="required hide">*</span> ${text('邀请码')}：<i class="fa icon-question hide"></i></label>-->
-							<!--<div class="col-sm-8">-->
-								<!--<#form:input path="inviteCode" maxlength="100" class="form-control"/>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</div>-->
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label class="control-label col-sm-4" title="">
@@ -81,7 +72,7 @@
                             <label class="control-label col-sm-4" title="">
                                 <span class="required ">*</span> ${text('课程时长')}：<i class="fa icon-question hide"></i></label>
                             <div class="col-sm-8">
-                                <#form:input path="duration" maxlength="100" class="form-control required"/>
+                                <#form:select path="duration" dictType="meeting_duration" blankOption="true" class="form-control" />
                             </div>
                         </div>
                     </div>
