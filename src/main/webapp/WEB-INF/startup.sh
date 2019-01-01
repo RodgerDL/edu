@@ -4,9 +4,6 @@
 #  *
 #  * Author: ThinkGem@163.com
 #  */
-echo ""
-echo "[信息] 运行Web工程。"
-echo ""
 
 # 设置JDK目录
 # JAVA_HOME=$PWD/jdk1.8.0_x64
@@ -29,4 +26,5 @@ else
   RUN_JAVA="$JAVA_HOME"/bin/java
 fi
 
-exec $RUN_JAVA -cp $CLASS_PATH $JAVA_OPTS org.springframework.boot.loader.WarLauncher
+# nohup $RUN_JAVA -cp $CLASS_PATH $JAVA_OPTS org.springframework.boot.loader.WarLauncher
+nohup java -cp $CLASS_PATH $JAVA_OPTS org.springframework.boot.loader.WarLauncher

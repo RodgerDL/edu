@@ -18,7 +18,7 @@ public class RequestUtils {
     private static String requestURL= "https://e-all.webex.com.cn/WBXService/XMLService";
 
     // 创建会议Request Body
-    private static String createMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.CreateMeeting\"><accessControl><meetingPassword></meetingPassword></accessControl><metaData><confName>meetingTitle</confName><agenda></agenda></metaData><schedule><startDate>planDate</startDate><duration>60</duration></schedule></bodyContent></body></serv:message>";
+    private static String createMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.CreateMeeting\"><accessControl><meetingPassword></meetingPassword></accessControl><metaData><confName>meetingTitle</confName><agenda></agenda></metaData><schedule><startDate>meetingPlanDate</startDate><duration>meetingDuration</duration></schedule></bodyContent></body></serv:message>";
 
     // 获得主持人开会地址Request Body
     private static String gethosturlMeetingMsg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serv:message xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><header><securityContext><siteName>e-all</siteName><webExID>webexID</webExID><password>webexPwd</password></securityContext></header><body><bodyContent xsi:type=\"java:com.webex.service.binding.meeting.GethosturlMeeting\"><meetingKey>meetingId</meetingKey></bodyContent></body></serv:message>";
@@ -30,15 +30,14 @@ public class RequestUtils {
      * 创建会议
      * @param webexID 账户用户
      * @param webexPwd 账户密码
-     * @param meetingTitle 会议标题
      * @param planDate 计划开始时间
      * @param duration 会议时长
      * @return meetingId 会议Key
      */
-    public static String creatMeeting (String webexID, String webexPwd, String meetingTitle, String planDate, String duration) throws IOException, DocumentException {
+    public static String creatMeeting (String webexID, String webexPwd, String planDate, String duration) throws IOException, DocumentException {
 
 //        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
-        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", meetingTitle).replace("planDate", planDate);
+        String msg = createMeetingMsg.replace("webexID", webexID).replace("webexPwd", webexPwd).replace("meetingTitle", "class-" + planDate).replace("meetingPlanDate", planDate).replace("meetingDuration", duration);
 
         String res = postMessage(requestURL, msg);
 
@@ -127,7 +126,7 @@ public class RequestUtils {
 
     public static void main(String[] args) {
         try {
-            System.out.println(creatMeeting("eall_webex_account1", "P@ss12345678", "class-11/30/2015 10:00:00", "11/30/2015 10:00:00", ""));
+            System.out.println(creatMeeting("eall_webex_account1", "P@ss12345678", "11/30/2015 10:00:00", "30"));
 //            System.out.println(getjoinurlMeeting("eall_webex_account1", "P@ss12345678", "601553473"));
         } catch (IOException ex) {
             // process the exception

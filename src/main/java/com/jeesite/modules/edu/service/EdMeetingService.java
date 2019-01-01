@@ -4,6 +4,8 @@
 package com.jeesite.modules.edu.service;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -53,13 +55,20 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
 			EdUserAccountMapping edUserAccountMapping = new EdUserAccountMapping(entity);
 			edUserAccountMapping.setStatus(EdUserAccountMapping.STATUS_NORMAL);
 			entity.setEdUserAccountMappingList(edUserAccountMappingDao.findList(edUserAccountMapping));
-
-            EdAccount edAccount = new EdAccount();
-            edAccount.setStatus(EdAccount.STATUS_NORMAL);
-            entity.setEdAccountList(edAccountDao.findList(edAccount));
 		}
+
 		return entity;
 	}
+
+    /**
+     * 获取账号列表
+     * @return
+     */
+	public List<EdAccount> getAccountList() {
+        EdAccount edAccount = new EdAccount();
+        edAccount.setStatus(EdAccount.STATUS_NORMAL);
+	    return edAccountDao.findList(edAccount);
+    }
 	
 	/**
 	 * 查询分页数据
@@ -98,7 +107,10 @@ public class EdMeetingService extends CrudService<EdMeetingDao, EdMeeting> {
             edAccount.setAccountCode(edMeeting.getAccountCode());
             edAccount = edAccountDao.get(edAccount);
 
-            String meetingId = RequestUtils.creatMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getName(), "11/30/2015 10:00:00", "");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            String planDate = sdf.format(edMeeting.getPlanStartTime());
+
+            String meetingId = RequestUtils.creatMeeting(edAccount.getName(), edAccount.getPassword(), planDate, edMeeting.getDuration().toString());
             edMeeting.setInviteCode(meetingId);
 
         } catch (IOException ie) {

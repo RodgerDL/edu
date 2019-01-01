@@ -132,6 +132,7 @@ public class EdMeetingController extends BaseController {
 	@RequiresPermissions("edu:edMeeting:view")
 	@RequestMapping(value = "form")
 	public String form(EdMeeting edMeeting, Model model) {
+        edMeeting.setEdAccountList(edMeetingService.getAccountList());
 		model.addAttribute("edMeeting", edMeeting);
 		return "modules/edu/edMeetingForm";
 	}
