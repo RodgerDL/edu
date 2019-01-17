@@ -121,12 +121,6 @@ $("#edUserAccountMappingDataGrid").dataGrid({
 				}
 			}
 		},
-		{header:'${text('账号')}', name:'testAccount.name', width:100, hidden:true,
-			editable:false, edittype:'select', editoptions:{'class':'form-control',
-				items: ${toJson(edMeeting.edAccountList)},
-				itemLabel: 'name', itemValue: 'acountCode',
-			}
-		},
 		{header:'${text('备注')}', name:'remarks', width:150, editable:false, edittype:'textarea', editoptions:{'maxlength':'2000', 'class':'form-control', 'rows':'1'}}
 	],
 

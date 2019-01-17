@@ -11,6 +11,7 @@ import com.jeesite.common.lang.StringUtils;
 import com.jeesite.common.mybatis.mapper.query.QueryType;
 import com.jeesite.modules.edu.entity.EdAccount;
 import com.jeesite.modules.edu.entity.EdStudentMeeting;
+import com.jeesite.modules.edu.entity.EdUserAccountMapping;
 import com.jeesite.modules.edu.service.EdVendorService;
 import com.jeesite.modules.edu.utils.RequestUtils;
 import com.jeesite.modules.sys.utils.UserUtils;
@@ -32,6 +33,7 @@ import com.jeesite.modules.edu.entity.EdMeeting;
 import com.jeesite.modules.edu.service.EdMeetingService;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -166,6 +168,11 @@ public class EdMeetingController extends BaseController {
     @RequestMapping(value = "studentMyForm")
     public String studentMyForm(EdMeeting edMeeting, Model model) {
         EdAccount edAccount = new EdAccount();
+//        for (EdUserAccountMapping edUserAccountMapping : edMeeting.getEdUserAccountMappingList()) {
+//            if (UserUtils.getUser().getUserCode().equals(edUserAccountMapping.getTestUser().getUserCode())) {
+//                edAccount.setAccountCode(edUserAccountMapping.getAccountCode());
+//            }
+//        }
         edAccount.setAccountCode(edMeeting.getAccountCode());
         edAccount = edVendorService.getAccount(edAccount);
         String joinURL = "";
