@@ -4,7 +4,7 @@
 #======================================#
 
 # 产品或项目名称、软件开发公司名称
-productName: E-all教学管理平台
+productName: 易学堂教学管理平台
 companyName: E-all
 
 # 产品版本、版权年份
@@ -21,8 +21,10 @@ demoMode: false
 server:
 
   port: 8980
+  address: 127.0.0.1
+  use-forward-headers: true
   servlet:
-    context-path: /js
+    context-path: /class
   tomcat:
     uri-encoding: UTF-8
     

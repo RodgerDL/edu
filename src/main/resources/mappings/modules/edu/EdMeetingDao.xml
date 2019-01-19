@@ -30,6 +30,7 @@
                 left join ed_user_account_mapping euam on em.meeting_code = euam.meeting_code
                 left join js_sys_user jsu on em.teacher_code = jsu.user_code
         <where>
+                em.status = '0'
             <if test="userCode != null and userCode != ''">
                 AND euam.user_code = #{userCode}
             </if>
