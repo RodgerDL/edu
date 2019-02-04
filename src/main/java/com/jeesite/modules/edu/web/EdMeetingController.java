@@ -107,11 +107,17 @@ public class EdMeetingController extends BaseController {
     @RequiresPermissions("edu:edMeeting:view")
     @RequestMapping(value = "teacherMyListData")
     @ResponseBody
-    public Page<EdMeeting> teacherMyListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
-        edMeeting.setPage(new Page<>(request, response));
-        edMeeting.getSqlMap().getWhere().disableAutoAddCorpCodeWhere()
-                .and("teacher_code", QueryType.EQ, UserUtils.getUser().getUserCode());
-        Page<EdMeeting> page = edMeetingService.findPage(edMeeting);
+    public Page<EdStudentMeeting> teacherMyListData(EdMeeting edMeeting, HttpServletRequest request, HttpServletResponse response) {
+//        edMeeting.setPage(new Page<>(request, response));
+//        edMeeting.getSqlMap().getWhere().disableAutoAddCorpCodeWhere()
+//                .and("teacher_code", QueryType.EQ, UserUtils.getUser().getUserCode());
+//        Page<EdMeeting> page = edMeetingService.findPage(edMeeting);
+//        return page;
+
+        Map<String, Object> params = MapUtils.newHashMap();
+        params.put("userCode", UserUtils.getUser().getUserCode());
+        Page<EdStudentMeeting> page = edMeetingService.findListForStudent(params);
+
         return page;
     }
 
@@ -148,17 +154,38 @@ public class EdMeetingController extends BaseController {
         EdAccount edAccount = new EdAccount();
         edAccount.setAccountCode(edMeeting.getAccountCode());
         edAccount = edVendorService.getAccount(edAccount);
-        String hostURL = "";
-        try {
-            hostURL = RequestUtils.gethosturlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
-        } catch (IOException ie) {
 
-        } catch (DocumentException de) {
+        // 学生视图
+        if (edMeeting.getTestUser() != null && !UserUtils.getUser().getUserCode().equals(edMeeting.getTestUser().getUserCode())) {
+            edAccount.setAccountCode(edMeeting.getAccountCode());
+            edAccount = edVendorService.getAccount(edAccount);
+            String joinURL = "";
+            try {
+                joinURL = RequestUtils.getjoinurlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
+            } catch (IOException ie) {
 
+            } catch (DocumentException de) {
+
+            }
+            edMeeting.setJoinMeetingURL(joinURL);
+            model.addAttribute("edMeeting", edMeeting);
+            return "modules/edu/edStudentMyMeetingForm";
+
+        // 老师视图
+        } else {
+            String hostURL = "";
+            try {
+                hostURL = RequestUtils.gethosturlMeeting(edAccount.getName(), edAccount.getPassword(), edMeeting.getInviteCode());
+            } catch (IOException ie) {
+
+            } catch (DocumentException de) {
+
+            }
+            edMeeting.setHostMeetingURL(hostURL);
+            model.addAttribute("edMeeting", edMeeting);
+            return "modules/edu/edTeacherMyMeetingForm";
         }
-        edMeeting.setHostMeetingURL(hostURL);
-        model.addAttribute("edMeeting", edMeeting);
-        return "modules/edu/edTeacherMyMeetingForm";
+
     }
 
     /**
@@ -195,7 +222,12 @@ public class EdMeetingController extends BaseController {
 	@PostMapping(value = "save")
 	@ResponseBody
 	public String save(@Validated EdMeeting edMeeting) {
-		edMeetingService.save(edMeeting);
+		for (EdUserAccountMapping edUserAccountMapping : edMeeting.getEdUserAccountMappingList()) {
+            if (edUserAccountMapping.getTestUser() != null && edUserAccountMapping.getTestUser().getUserCode().equals(edMeeting.getTestUser().getUserCode())) {
+                return renderResult(Global.FALSE, text("授课老师和学员不可重复！"));
+            }
+        }
+        edMeetingService.save(edMeeting);
 		return renderResult(Global.TRUE, text("保存会议表成功！"));
 	}
 	

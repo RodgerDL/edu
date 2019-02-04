@@ -41,7 +41,7 @@ jdbc:
   url: jdbc:mysql://47.92.158.108:3306/jeesite?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
 #  url: jdbc:mysql://127.0.0.1:3306/jeesite?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
   username: root
-  password: abcd1234
+  password: ee44424d1d74f44342fd7c8d4ffefae4
   testSql: SELECT 1
 
 

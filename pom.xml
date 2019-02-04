@@ -33,7 +33,7 @@
 		<!-- 核心模块 -->
 		<dependency>
 			<groupId>com.jeesite</groupId>
-			<artifactId>jeesite-module-core</artifactId>
+			<artifactId>edu-core</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		

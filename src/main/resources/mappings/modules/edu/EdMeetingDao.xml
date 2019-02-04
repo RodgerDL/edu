@@ -22,20 +22,38 @@
 
     <!-- 查询学生课程 -->
     <select id="findListForStudent" parameterType="map" resultMap="queryForListResultMap">
-        SELECT
-                em.*,
-                jsu.user_name as teacherName
-          FROM
-                ed_meeting em
-                left join ed_user_account_mapping euam on em.meeting_code = euam.meeting_code
-                left join js_sys_user jsu on em.teacher_code = jsu.user_code
-        <where>
-                em.status = '0'
-            <if test="userCode != null and userCode != ''">
-                AND euam.user_code = #{userCode}
-            </if>
-        </where>
-        ORDER BY em.plan_start_time desc
+        SELECT *
+        FROM (
+                SELECT
+                        em.*,
+                        jsu.user_name as teacherName
+                FROM
+                        ed_meeting em
+                        left join js_sys_user jsu on em.teacher_code = jsu.user_code
+                <where>
+                    em.status = '0'
+                    <if test="userCode != null and userCode != ''">
+                        AND em.teacher_code = #{userCode}
+                    </if>
+                </where>
+
+                UNION ALL
+
+                SELECT
+                        em.*,
+                        jsu.user_name as teacherName
+                  FROM
+                        ed_meeting em
+                        left join ed_user_account_mapping euam on em.meeting_code = euam.meeting_code
+                        left join js_sys_user jsu on em.teacher_code = jsu.user_code
+                <where>
+                        em.status = '0'
+                    <if test="userCode != null and userCode != ''">
+                        AND euam.user_code = #{userCode}
+                    </if>
+                </where>
+            ) A
+        ORDER BY A.plan_start_time desc
     </select>
 	
 </mapper>
